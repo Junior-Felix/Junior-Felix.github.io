@@ -1,14 +1,12 @@
 ---
 title: "Becoming an AWS Solutions Architect Associate"
-description: "A summary of my experience studying to be an AWS Solutions Architect-Associate"
-pubDate: "April 20 2022"
-heroImage: "/assets/images/mehmet-ali-peker-hfiym43qBpk-unsplash.jpg"
-summary: "This blog post summarizes my experience studying for the AWS Solutions Architect-Associate exam. I discuss my motivation to study for the exam, the process I went through and my key takeaways from the whole experience."
+pubDatetime: 2022-05-19T21:00:00.000Z
+ogImage: "/assets/images/mehmet-ali-peker-hfiym43qBpk-unsplash.jpg"
+description: "This blog post summarizes my experience studying for the AWS Solutions Architect-Associate exam. I discuss my motivation to study for the exam, the process I went through and my key takeaways from the whole experience."
 featured: false
 tags: ["reflection"]
+slug: becoming-an-aws-solutions-architect-associate
 ---
-
-import Hint from "../../components/Hint.astro";
 
 It has been a while since I got certified as an AWS Solutions Architect - Associate level; thus, I wanted to share my journey through it all. I’m hoping that this article provides insight to anyone who plans on studying and eventually taking the exam.
 
@@ -30,11 +28,7 @@ The AWS Certifications that I felt I could take were as follows:
 
 I eventually chose to go for the AWS Certified Solutions Architect - Associate.
 
-<Hint>
-
 💡 All these definitions are from my perspective. To get a clearer explanation of all these certifications, please visit the official AWS documentation <a href="https://aws.amazon.com/certification/" target="_blank">here</a>. (_The badges are clickable on the page in case you get confused when you get there_). Also, this article <a href="https://acloudguru.com/blog/engineering/which-aws-certification-should-i-take?" target="_blank">here</a> gives a clearer definition of the certifications if you’re stuck on deciding which certificate to go for.
-
-</Hint>
 
 After deciding on which certification to take, I started gathering information on resources I could use to successfully get it.
 
@@ -56,11 +50,7 @@ In the information-gathering phase, I was overwhelmed by the wealth of informati
 
 I continued with my preparations until I felt confident enough to take the AWS Certification. In this phase, I would go over areas I found challenging and do practice tests to identify my weaknesses.
 
-<Hint>
-
 💡 Practice tests can be a trap, sometimes. There are cases of people passing practice tests and still failing the certification exam. This article <a href="https://www.linkedin.com/pulse/you-might-using-practice-exams-all-wrong-adrian-cantrill/" target="_blank">here </a> details how you can leverage practice tests to your benefit.
-
-</Hint>
 
 ## Taking the Test
 
@@ -138,10 +128,6 @@ Currently, I don’t intend on taking another associate-level AWS certification 
 
 Thank you for taking the time to read this to the end! If you are planning to take the SAA-C03 examination I wish you the best of luck.
 
-<Hint>
-
 💡 This <a href="https://valenciandigital.com/insights/are-certifications-worth-it" target="_blank"> article </a> provides a detailed analysis of the value of certifications in the tech industry.
-
-</Hint>
 
 Featured Image Credit: <a href="https://unsplash.com/@mrpeker" target="_blank">Mehmet Ali Peker </a>on<a href="https://unsplash.com/photos/hfiym43qBpk" target="_blank">Unsplash</a>

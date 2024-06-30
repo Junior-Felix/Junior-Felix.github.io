@@ -1,14 +1,12 @@
 ---
 title: "The Discourse Around React Server Components"
 description: "Explore the evolving conversation about React Server Components"
-pubDate: "Sep 14 2023"
-heroImage: "/assets/images/preview-image-rsc.png"
-summary: "Explore the evolving conversation about React Server Components"
+pubDatetime: 2023-10-13T21:00:00.000Z
+ogImage: "/assets/images/preview-image-rsc.png"
 featured: false
+slug: the-discourse-around-react-server-components
 tags: ["insight"]
 ---
-
-import Hint from "../../components/Hint.astro";
 
 On December 21, 2020, an [RFC](https://github.com/reactjs/rfcs/pull/188) was published in ReactJs that started the React Server Components discussion. This RFC was accompanied by a [YouTube video](https://www.youtube.com/watch?v=TQQPAU21ZUw) that detailed an implementation that would allow ReactJs developers to ship zero bundle-sized components. The bundle size issue frequently arises when React applications face performance issues. Consequently, over the years, the react community has developed strategies such as tree shaking, minification, code-splitting and lazy loading to reduce bundle size.
 
@@ -72,13 +70,11 @@ Apart from reduced bundle size, server components offer the following benefits:
 
 Currently, it is not advisable to use React Server Components with React only as a library in production. Instead, React meta-frameworks are highly recommended. Among those frameworks, NextJs has emerged as the top advocate for RSCs.
 
-<Hint>
-  It is important to note that other alternatives such as
-  [Waku](https://github.com/dai-shi/waku) and [Vite RSC
-  Experiments](https://github.com/cyco130/vite-rsc) implement RSCs. For a simple
-  implementation, the [simple rsc
-  repository](https://github.com/bholmesdev/simple-rsc) would suffice.
-</Hint>
+It is important to note that other alternatives such as
+[Waku](https://github.com/dai-shi/waku) and [Vite RSC
+Experiments](https://github.com/cyco130/vite-rsc) implement RSCs. For a simple
+implementation, the [simple rsc
+repository](https://github.com/bholmesdev/simple-rsc) would suffice.
 
 ### React Server Components in NextJs
 
@@ -125,8 +121,5 @@ Here are some resources that helped me understand server components better:
 - [https://github.com/sadmann7/skateshop](https://github.com/sadmann7/skateshop)
 - [https://github.com/joschan21/breadit](https://github.com/joschan21/breadit)
 
-<Hint>
-    [This Week In React](https://thisweekinreact.com/) is a great resource that keeps readers up to date with what's happening in
-      the ReactJs developer community. Kindly consider subscribing!
-
-</Hint>
+  [This Week In React](https://thisweekinreact.com/) is a great resource that keeps readers up to date with what's happening in
+  the ReactJs developer community. Kindly consider subscribing!

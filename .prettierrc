@@ -1,3 +1,14 @@
 {
-  "printWidth": 80
+  "printWidth": 80,
+  "singleQuote": false,
+  "bracketSpacing": true,
+  "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+  "overrides": [
+    {
+      "files": "*.astro",
+      "options": {
+        "parser": "astro"
+      }
+    }
+  ]
 }

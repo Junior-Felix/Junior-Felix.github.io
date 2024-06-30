@@ -1,34 +1,18 @@
 ---
-import EmailIcon from "../assets/icons/EmailIcon.astro";
-import FeedIcon from "../assets/icons/FeedIcon.astro";
-import GithubIcon from "../assets/icons/GithubIcon.astro";
-import MediumIcon from "../assets/icons/MediumIcon.astro";
+import SocialLinks from "./SocialLinks.astro";
 
 const today = new Date();
 ---
 
-<footer class="footer">
-  <div class="social-links">
-    <a href="mailto:juniorfelix8825@outlook.com" target="_blank" class="link">
-      <EmailIcon />
-    </a>
-    <a href="https://github.com/JrFelix540" target="_blank" class="link">
-      <GithubIcon />
-    </a>
-    <a href="https://juniorfelix.com/rss.xml" target="_blank" class="link">
-      <FeedIcon />
-    </a>
-    <a href="https://medium.com/@junior-felix" target="_blank" class="link">
-      <MediumIcon />
-    </a>
+<footer class="ml-auto mr-auto w-full">
+  <div class="flex justify-between border-t border-skin-line pt-4">
+    <p class="copy">
+      &copy; {today.getFullYear()} &nbsp;|&nbsp; All rights reserved.
+    </p>
+    <SocialLinks />
   </div>
-  <p class="copy">&copy; {today.getFullYear()} Junior Felix.</p>
 </footer>
 <style>
-  .footer {
-    padding: 25px;
-    text-align: center;
-  }
   .social-links {
     display: flex;
     align-items: center;
@@ -39,11 +23,7 @@ const today = new Date();
   .copy {
     color: #fff;
   }
-  :global(.light) .copy {
-    color: #000;
-  }
-  .icon {
-    height: 24px;
-    width: 24px;
+  .icon-tabler {
+    @apply inline-block h-6 w-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110;
   }
 </style>

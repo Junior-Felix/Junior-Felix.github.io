@@ -1,26 +1,25 @@
 import { defineCollection, z } from "astro:content";
 
 const blog = defineCollection({
-  // Type-check frontmatter using a schema
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    // Transform string to Date object
-    pubDate: z
-      .string()
-      .or(z.date())
-      .transform((val) => new Date(val)),
-    updatedDate: z
-      .string()
-      .optional()
-      .transform((str) => (str ? new Date(str) : undefined)),
-    heroImage: z.string().optional(),
-    summary: z.string().optional(),
-    featured: z.boolean().optional(),
-    tags: z.array(z.string()),
-    externalLink: z.string().optional(),
-    readingTime: z.number().optional(),
-  }),
+  type: "content",
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      pubDatetime: z.date(),
+      modDatetime: z.date().optional().nullable(),
+      ogImage: image()
+        .refine((img) => img.width >= 1200 && img.height >= 630, {
+          message: "OpenGraph image must be at least 1200 X 630 pixels!",
+        })
+        .or(z.string())
+        .optional(),
+      featured: z.boolean().optional(),
+      tags: z.array(z.string()),
+      canonicalURL: z.string().optional(),
+      readingTime: z.number().optional(),
+      draft: z.boolean().optional(),
+    }),
 });
 
 export const collections = { blog };

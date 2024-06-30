@@ -1,14 +1,12 @@
 ---
 title: "Integrating Bun: A Developer's Journey"
 description: "An outline of my initial exploration into Bun, including my impressions, and a speculation of the future outlook."
-pubDate: "Oct 24 2023"
-heroImage: "/assets/images/bun-preview.jpg"
-summary: "An outline of my initial exploration into Bun, including my impressions, and a speculation of the future outlook."
+pubDatetime: 2023-11-23T21:00:00.000Z
+ogImage: "/assets/images/bun-preview.jpg"
 featured: true
+slug: integrating-bun-a-developers-journey
 tags: ["post mortem"]
 ---
-
-import Container from "../../components/Container.astro";
 
 I have often thought of the JavaScript ecosystem as a free market; where multiple solutions to the same problem can co-exist. In this dynamic environment, new tools can emerge and gain prominence by addressing the specific needs of developers. Recently, Bun has been the cause of "buzz" in the JavaScript "marketplace" with the release of [Bun 1.0](https://bun.sh/blog/bun-v1.0).
 
@@ -22,7 +20,7 @@ I have often thought of the JavaScript ecosystem as a free market; where multipl
 
 As a JavaScript/TypeScript developer, I found Bun's pitch to be quite compelling. Therefore, I set off on a journey to personally evaluate the noteworthy benefits it promises.
 
-<Container>![](/assets/images/bilbo.jpg)</Container>
+![](/assets/images/bilbo.jpg)
 
 ## Getting Started
 
@@ -192,29 +190,21 @@ After switching to Bun, my setup became faster and used less space. Running both
 
 Running `docker compose build` on the Node.Js setup finished in 69.2s as shown below:
 
-<Container>
-  ![nodejs build image](/assets/images/docker-compose-node-build.png)
-</Container>
+![nodejs build image](/assets/images/docker-compose-node-build.png)
 
 Running `docker compose build` on the Bun setup finished in 26.4s as shown below:
 
-<Container>
-  ![bun build image](/assets/images/docker-compose-bun-build.png)
-</Container>
+![bun build image](/assets/images/docker-compose-bun-build.png)
 
 The docker image sizes also differ for both setups. The results were as follows:
 
 For the Node.Js setup:
 
-<Container>
-  ![nodejs docker image](/assets/images/docker-image-node.png)
-</Container>
+![nodejs docker image](/assets/images/docker-image-node.png)
 
 For the Bun setup:
 
-<Container>
-  ![bunjs docker image](/assets/images/docker-image-bun.png)
-</Container>
+![bunjs docker image](/assets/images/docker-image-bun.png)
 
 ## Caveats
 

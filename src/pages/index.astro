@@ -1,15 +1,20 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import BlogPreview from "../components/BlogPreview.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { getCollection } from "astro:content";
 import ProjectPreview from "../components/ProjectPreview.astro";
-import Hero from "../components/Hero.astro";
+import Layout from "@layouts/Layout.astro";
+import LinkButton from "@components/LinkButton.astro";
+import SocialLinks from "@components/SocialLinks.astro";
+import Card from "@components/Card.astro";
+import { getSortedPosts } from "@utils/getSortedPosts";
 
-const posts = (await getCollection("blog"))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+const posts = await getCollection("blog");
+const sortedPosts = getSortedPosts(posts);
+const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
+const recentPosts = sortedPosts
+  .filter(({ data }) => !data.featured)
   .slice(0, 3);
 
 const projects = [
@@ -38,108 +43,136 @@ const projects = [
 ];
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header title={SITE_TITLE} />
-    <main class="main-container">
-      <Hero />
-      <section class="section-container">
-        <div class="section-heading">
-          <h3 class="title">Latest Posts</h3>
-          <a href="/blog" class="more">See More</a>
-        </div>
-        <div class="column-of-3">
-          {
-            posts.map((post) => (
-              <BlogPreview
-                title={post.data.title}
-                heroImage={post.data.heroImage}
-                slug={post.slug}
-                pubDate={post.data.pubDate}
-                body={post.body}
-                externalLink={post.data.externalLink}
-                readingTime={post.data.readingTime}
-              />
-            ))
-          }
-        </div>
-      </section>
-      <section class="section-container">
-        <div class="section-heading">
-          <h3 class="title">Projects</h3>
-          <a href="/projects" class="more">See More</a>
-        </div>
-        <div class="column-of-3">
-          {projects.map((project) => <ProjectPreview {...project} />)}
-        </div>
-      </section>
-    </main>
-    <Footer />
-    <style>
-      .main-container {
-        display: flex;
-        flex-direction: column;
-        gap: 50px;
-      }
+<Layout>
+  <Header />
 
-      .section-container {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
+  <section class="ml-auto mr-auto border-b border-skin-line pb-6 pb-8">
+    <h1 class="my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl">
+      Hello, I'm Felix
+    </h1>
+    <p class="my-2">
+      I am a software developer and this is my little corner of the internet.
+      Here, I share my thoughts and experiences on building software apps. Join
+      me in exploring the tech world and let's learn together!
+    </p>
+    <p>
+      Read my blog posts or check my <LinkButton
+        className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
+        href="">GitHub</LinkButton
+      >.
+    </p>
+    <div class="mt-4 flex flex-col sm:flex-row sm:items-center">
+      <div class="mb-1 mr-2 whitespace-nowrap sm:mb-0">Social Links</div>
+      <SocialLinks />
+    </div>
+  </section>
+  <section class="ml-auto mr-auto w-full border-b border-skin-line">
+    <h2 class="text-2xl font-semibold tracking-wide">Featured Posts</h2>
+    <ul>
+      {
+        featuredPosts.map(({ slug, data }) => (
+          <Card
+            href={data.canonicalURL ?? `/posts/${slug}/`}
+            title={data.title}
+            pubDatetime={data.pubDatetime}
+            modDatetime={data.modDatetime}
+            description={data.description}
+            secHeading={false}
+          />
+        ))
       }
-      .section-heading {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    </ul>
+  </section>
+  <section class="ml-auto mr-auto w-full border-b border-skin-line">
+    <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
+    <ul>
+      {
+        recentPosts.map(({ slug, data }) => (
+          <Card
+            href={`/posts/${slug}/`}
+            title={data.title}
+            pubDatetime={data.pubDatetime}
+            modDatetime={data.modDatetime}
+            description={data.description}
+            secHeading={false}
+          />
+        ))
       }
-      .title {
-        font-size: 32px;
-        font-weight: 500;
-        color: #ffffff;
-      }
+    </ul>
+    <div class="my-4 flex justify-center">
+      <LinkButton href="/posts">
+        All Posts
+        <svg xmlns="http://www.w3.org/2000/svg"
+          ><path
+            d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
+          ></path>
+        </svg>
+      </LinkButton>
+    </div>
+  </section>
+  <section class="ml-auto mr-auto flex w-full flex-col gap-6">
+    <h2 class="text-2xl font-semibold tracking-wide">Projects</h2>
+    <div class="flex flex-col gap-4">
+      {projects.map((project) => <ProjectPreview {...project} />)}
+    </div>
+  </section>
 
-      .more {
-        background-color: #252525;
-        color: #e6e6e6;
-        border-radius: 24px;
-        padding: 7.5px 15px;
-        border: 1px solid #2c2c2c;
-        text-decoration: none;
-      }
+  <Footer />
+</Layout>
+<style>
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
 
-      .more:hover {
-        border-color: #666;
-        text-decoration: none;
-      }
+  .section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .title {
+    font-size: 32px;
+    font-weight: 500;
+    color: #ffffff;
+  }
 
-      .column-of-3 {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-      }
+  .more {
+    background-color: #252525;
+    color: #e6e6e6;
+    border-radius: 24px;
+    padding: 7.5px 15px;
+    border: 1px solid #2c2c2c;
+    text-decoration: none;
+  }
 
-      :global(.light) .title {
-        color: #252525;
-      }
+  .more:hover {
+    border-color: #666;
+    text-decoration: none;
+  }
 
-      :global(.light) .more {
-        background-color: #f6f6f6;
-        color: #363636;
-        border-color: #ddd;
-      }
+  .column-of-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
 
-      :global(.light) .more:hover {
-        border-color: #666;
-      }
-      @media (max-width: 769px) {
-        .column-of-3 {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
-  </body>
-</html>
+  :global(.light) .title {
+    color: #252525;
+  }
+
+  :global(.light) .more {
+    background-color: #f6f6f6;
+    color: #363636;
+    border-color: #ddd;
+  }
+
+  :global(.light) .more:hover {
+    border-color: #666;
+  }
+  @media (max-width: 769px) {
+    .column-of-3 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

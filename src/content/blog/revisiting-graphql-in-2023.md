@@ -1,10 +1,10 @@
 ---
 title: "Revisiting GraphQL in 2023"
 description: "A deep dive into the state of GraphQL in 2023"
-pubDate: "Sep 4 2023"
-heroImage: "/assets/images/preview-image-graphql-1.png"
-summary: "Assess the state of GraphQL in 2023 as we explore its growth, challenges, and enduring relevance in modern application development"
+pubDatetime: 2023-10-03T21:00:00.000Z
+ogImage: "/assets/images/preview-image-graphql-1.png"
 featured: false
+slug: revisiting-graphql-in-2023
 tags: ["deep dive"]
 ---
 

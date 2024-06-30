@@ -1,18 +1,16 @@
 ---
 title: "Next.js 14: Skeptical Observations"
 description: "In this article, I discuss my concerns with the release of NextJs 14."
-pubDate: "Oct 27 2023"
-heroImage: "/assets/images/next-js-14-preview.jpg"
-summary: "In this article, I discuss my concerns with the release of NextJs 14."
+pubDatetime: 2023-11-26T21:00:00.000Z
+ogImage: "/assets/images/next-js-14-preview.jpg"
 featured: false
+slug: nextjs-14-skeptical-observations
 tags: ["reflections"]
 ---
 
-import Container from "../../components/Container.astro";
-
 A few releases ago, I'd wholeheartedly recommend Next.js to both friends and foes whenever a React frameworks discussion arose. With this latest release, my enthusiasm has waned. Next.js has taken a more "futuristic" persona, moving at a blazingly fast pace, and it feels like a significant portion of its community is being left behind. In this article, I will narrow my focus on [the release of Next.js 14](https://nextjs.org/blog/next-14), and my concerns related to it.
 
-<Container>![test](/assets/images/mark-jackson-what.jpg)</Container>
+![test](/assets/images/mark-jackson-what.jpg)
 
 ## Next.js 14 Release Notes
 
@@ -34,7 +32,7 @@ With certain decisions, Next.js blurs the line between experimental and stable f
 - **Turbopack's premature promotion**: It is concerning that despite Turbopack not passing all the tests for both App router and Pages router, it is prominently featured in the official release notes as a significant improvement. Moreover, these margins of improvement are boldly highlighted despite its unstable nature. It is worth noting that Turbopack is not the default bundler when running the `next dev` command, further contributing to this ambiguity.
 - **Server actions confusion**: Recently, the React team shared a post on X announcing the availability of server actions in React Canary, as shown [here](https://twitter.com/reactjs/status/1716573234160967762). From the replies, you can tell that the developer community is confused if server actions are a feature of Next.js or React. Additionally, the presence of server actions in React Canary implies their instability within React, even though they may be considered stable in the context of Next.js. The lingering ambiguity adds to the complexity of the situation.
 
-<Container> ![](/assets/images/canary-stable.jpg)</Container>
+![](/assets/images/canary-stable.jpg)
 
 ### Reevaluating the Major Release Label
 
