@@ -1,0 +1,52 @@
+---
+import { SITE } from "@config/config";
+import type { CollectionEntry } from "astro:content";
+import Header from "./Header.astro";
+import BreadCrumbs from "./BreadCrumbs.astro";
+import Layout from "@layouts/Layout.astro";
+import Card from "./Card.astro";
+import Pagination from "./Pagination.astro";
+import Footer from "./Footer.astro";
+
+export interface Props {
+  currentPage: number;
+  totalPages: number;
+  paginatedPosts: CollectionEntry<"blog">[];
+}
+
+const { currentPage, totalPages, paginatedPosts } = Astro.props;
+---
+
+<Layout title={`Posts | ${SITE.title}`}>
+  <Header activeNav="posts" />
+  <main id="main-content">
+    <section class="ml-auto mr-auto flex flex-col gap-4">
+      <div class="flex flex-col gap-2">
+        <BreadCrumbs />
+        <h1 class="text-2xl font-semibold sm:text-3xl">Posts</h1>
+        <p class="italic">All articles I've posted.</p>
+      </div>
+      <ul>
+        {
+          paginatedPosts.map(({ data, slug }) => (
+            <Card
+              href={data.canonicalURL ?? `/posts/${slug}/`}
+              title={data.title}
+              pubDatetime={data.pubDatetime}
+              modDatetime={data.modDatetime}
+              description={data.description}
+              secHeading={false}
+            />
+          ))
+        }
+      </ul>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        prevUrl={`/posts/${currentPage - 1 !== 1 ? "/" + (currentPage - 1) : ""}/`}
+        nextUrl={`/posts/${currentPage + 1}/`}
+      />
+    </section>
+  </main>
+  <Footer />
+</Layout>

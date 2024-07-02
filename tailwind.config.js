@@ -9,7 +9,6 @@ function withOpacity(variableName) {
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
-  // content: ["./src/**/components/*"],
   theme: {
     screens: {
       sm: "640px",
