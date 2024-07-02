@@ -6,24 +6,51 @@ import LinkedIn from "@assets/icons/LinkedIn.astro";
 import FeedIcon from "@assets/icons/FeedIcon.astro";
 ---
 
-<div class="flex items-center gap-5">
-  <a href="mailto:juniorfelix8825@outlook.com" target="_blank" class="link">
+<div class="flex items-center gap-2">
+  <a
+    href="mailto:juniorfelix8825@outlook.com"
+    target="_blank"
+    class="hover:rotate-6 hover:text-skin-accent"
+  >
     <EmailIcon />
   </a>
-  <a href="https://github.com/JrFelix540" target="_blank" class="link">
+  <a
+    href="https://github.com/JrFelix540"
+    target="_blank"
+    class="hover:rotate-6 hover:text-skin-accent"
+  >
     <GithubIcon />
   </a>
-  <a href="https://medium.com/@junior-felix" target="_blank" class="link">
+  <a
+    href="https://medium.com/@junior-felix"
+    target="_blank"
+    class="hover:rotate-6 hover:text-skin-accent"
+  >
     <MediumIcon />
   </a>
   <a
     href="https://www.linkedin.com/in/junior-felix/"
     target="_blank"
-    class="link"
+    class="hover:rotate-6 hover:text-skin-accent"
   >
     <LinkedIn />
   </a>
-  <a href="https://">
+  <a href="https://" class="hover:rotate-6 hover:text-skin-accent">
     <FeedIcon />
   </a>
 </div>
+<style>
+  .social-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 25px;
+  }
+  .copy {
+    color: #fff;
+  }
+  .icon-tabler {
+    @apply inline-block h-6 w-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110;
+  }
+</style>
