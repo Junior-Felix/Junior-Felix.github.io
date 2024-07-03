@@ -1,39 +1,73 @@
 ---
+import TelegramIcon from "@assets/icons/TelegramIcon.astro";
 import EmailIcon from "../assets/icons/EmailIcon.astro";
 import FacebookIcon from "../assets/icons/FacebookIcon.astro";
-import LinkedIn from "../assets/icons/LinkedIn.astro";
+import LinkedInIcon from "../assets/icons/LinkedIn.astro";
 import TwitterIcon from "../assets/icons/TwitterIcon.astro";
+import RedditIcon from "@assets/icons/RedditIcon.astro";
+import LinkButton from "./LinkButton.astro";
 
 export interface Props {
   url: URL;
   title: string;
 }
 const { url, title } = Astro.props;
-const twitterShareLink = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
-const linkedInShareLink = `https://www.linkedin.com/shareArticle?mini=true&url=${url}`;
-const facebookShareLink = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-const emailShareLInk = `mailto:?subject=${title}&body=Check out this article ${url}`;
+const shareIcons = [
+  {
+    name: "X",
+    href: `https://x.com/intent/tweet?url=${url}&text=${title}`,
+    linkTitle: "Share this post on X",
+    Icon: TwitterIcon,
+  },
+  {
+    name: "Facebook",
+    href: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+    linkTitle: "Share this post on Facebook",
+    Icon: FacebookIcon,
+  },
+  {
+    name: "Telegram",
+    href: `https://t.me/share/url?url=${url}`,
+    linkTitle: "Share this post on Telegram",
+    Icon: TelegramIcon,
+  },
+  {
+    name: "Mail",
+    href: `mailto:?subject=See%20this%20post&body=${url}`,
+    linkTitle: "Share this post via email",
+    Icon: EmailIcon,
+  },
+  {
+    name: "Reddit",
+    href: `https://reddit.com/submit?url={${url}}&title={${title}}`,
+    linkTitle: "Share this post on Reddit",
+    Icon: RedditIcon,
+  },
+  {
+    name: "LinkedIn",
+    href: `https://www.linkedin.com/shareArticle?mini=true&url=${url}`,
+    linkTitle: "Share this post on Linkedin",
+    Icon: LinkedInIcon,
+  },
+];
 ---
 
-<div class="container">
-  <a href={twitterShareLink} class="link" target="_blank">
-    <TwitterIcon />
-  </a>
-  <a href={linkedInShareLink} class="link" target="_blank">
-    <LinkedIn />
-  </a>
-  <a href={facebookShareLink} class="link" target="_blank">
-    <FacebookIcon />
-  </a>
-  <a href={emailShareLInk} class="link" target="_blank">
-    <EmailIcon />
-  </a>
+<div
+  class="flex flex-col flex-wrap items-center justify-center gap-1 sm:items-start"
+>
+  <span class="italic">Share this post on:</span>
+  <div class="text-center">
+    {
+      shareIcons.map(({ href, linkTitle, Icon }) => (
+        <LinkButton
+          href={href}
+          className="scale-90 p-2 hover:rotate-6 sm:p-1"
+          title={linkTitle}
+        >
+          <Icon />
+          <span class="sr-only">{linkTitle}</span>
+        </LinkButton>
+      ))
+    }
+  </div>
 </div>
-
-<style>
-  .container {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-</style>

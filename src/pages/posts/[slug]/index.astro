@@ -1,4 +1,5 @@
 ---
+import PostDetails from "@components/PostDetails.astro";
 import Posts from "@components/Posts.astro";
 import { getPageNumbers } from "@utils/getPageNumbers";
 import { getPagination } from "@utils/getPagination";
@@ -37,7 +38,7 @@ const { paginatedPosts, currentPage, totalPages } = getPagination({
 
 {
   post ? (
-    <p>Post</p>
+    <PostDetails post={post} />
   ) : (
     <Posts
       paginatedPosts={paginatedPosts}
