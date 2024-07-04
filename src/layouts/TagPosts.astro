@@ -1,0 +1,54 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Layout from "./Layout.astro";
+import { SITE } from "@config/config";
+import Header from "@components/Header.astro";
+import Pagination from "@components/Pagination.astro";
+import Footer from "@components/Footer.astro";
+import Card from "@components/Card.astro";
+import BreadCrumbs from "@components/BreadCrumbs.astro";
+
+export interface Props {
+  currentPage: number;
+  totalPages: number;
+  paginatedPosts: CollectionEntry<"blog">[];
+  tag: string;
+  tagName: string;
+}
+
+const { currentPage, totalPages, paginatedPosts, tag, tagName } = Astro.props;
+---
+
+<Layout title={`Tag: ${tagName} | ${SITE.title}`}>
+  <Header activeNav="tags" />
+  <main id="main-content" class="mx-auto flex w-full max-w-3xl flex-col gap-2">
+    <section>
+      <div class="flex flex-col gap-2">
+        <BreadCrumbs />
+        <h1 class="text-2xl font-semibold sm:text-3xl">Tag: {tagName}</h1>
+        <p class="italic">All articles with the tag {tagName}</p>
+      </div>
+      <ul>
+        {
+          paginatedPosts.map(({ data, slug }) => (
+            <Card
+              href={data.canonicalURL ?? `/posts/${slug}/`}
+              title={data.title}
+              pubDatetime={data.pubDatetime}
+              modDatetime={data.modDatetime}
+              description={data.description}
+              secHeading={false}
+            />
+          ))
+        }
+      </ul>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        prevUrl={`/tags/${tag}${currentPage - 1 !== 1 ? "/" + (currentPage - 1) : ""}/`}
+        nextUrl={`/tags/${tag}/${currentPage + 1}/`}
+      />
+    </section>
+    <Footer />
+  </main>
+</Layout>

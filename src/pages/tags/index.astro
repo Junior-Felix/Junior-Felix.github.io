@@ -1,0 +1,28 @@
+---
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+import Tag from "@components/Tag.astro";
+import { SITE } from "@config/config";
+import Layout from "@layouts/Layout.astro";
+import { getUniqueTags } from "@utils/getUniqueTags";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
+const tags = getUniqueTags(posts);
+---
+
+<Layout title={`Tags | ${SITE.title}`}>
+  <Header activeNav="tags" />
+  <main id="main-content" class="mx-auto w-full max-w-3xl px-4 py-4">
+    <div class="flex flex-col gap-2">
+      <h1 class="text-2xl font-semibold sm:text-3xl">Tags</h1>
+      <p class="italic">All the tags used in posts.</p>
+    </div>
+    <section>
+      <ul>
+        {tags.map(({ tag }) => <Tag tag={tag} size="lg" />)}
+      </ul>
+    </section>
+  </main>
+  <Footer />
+</Layout>
