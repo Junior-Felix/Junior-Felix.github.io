@@ -1,0 +1,36 @@
+---
+import Header from "@components/Header.astro";
+import { SITE } from "@config/config";
+import Layout from "@layouts/Layout.astro";
+import { SearchBar } from "@components/SearchBar";
+import { getSortedPosts } from "@utils/getSortedPosts";
+import { getCollection } from "astro:content";
+import BreadCrumbs from "@components/BreadCrumbs.astro";
+import Footer from "@components/Footer.astro";
+
+const posts = await getCollection("blog");
+const sortedPosts = getSortedPosts(posts);
+
+const searchList = sortedPosts.map(({ data, slug }) => ({
+  title: data.title,
+  description: data.description,
+  data,
+  slug,
+}));
+---
+
+<Layout title={`Search | ${SITE.title}`}>
+  <Header activeNav="search" />
+  <main
+    class="ml-auto mr-auto flex w-full max-w-3xl flex-col gap-4 px-4 py-4"
+    id="main-content"
+  >
+    <BreadCrumbs />
+    <div class="flex flex-col gap-2">
+      <h1 class="text-2xl font-semibold sm:text-3xl">Search</h1>
+      <p class="italic">Search any article ...</p>
+    </div>
+    <SearchBar client:load searchList={searchList} />
+  </main>
+  <Footer />
+</Layout>
