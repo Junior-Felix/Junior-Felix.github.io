@@ -8,13 +8,23 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://juniorfelix.com/",
-  integrations: [sitemap(), tailwind({
-    applyBaseStyles: false
-  }), react()],
+  site: "https://Junior-Felix.github.io",
+  integrations: [
+    sitemap(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    react(),
+  ],
   markdown: {
-    remarkPlugins: [remarkToc, [remarkCollapse, {
-      test: "Table of contents"
-    }]]
-  }
+    remarkPlugins: [
+      remarkToc,
+      [
+        remarkCollapse,
+        {
+          test: "Table of contents",
+        },
+      ],
+    ],
+  },
 });
