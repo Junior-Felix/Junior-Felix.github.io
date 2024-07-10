@@ -13,19 +13,19 @@ export const SITE: Site = {
 export const SOCIALS: Array<SocialObject> = [
   {
     name: "Github",
-    href: "",
+    href: "https://github.com/Junior-Felix",
     linkTitle: `${SITE.title} on Github`,
     active: true,
   },
   {
     name: "Medium",
-    href: "",
+    href: "https://medium.com/@junior-felix",
     linkTitle: `${SITE.title} on Medium`,
     active: true,
   },
   {
     name: "LinkedIn",
-    href: "https://github.com/satnaing/astro-paper",
+    href: "https://www.linkedin.com/in/junior-felix/",
     linkTitle: `${SITE.title} on LinkedIn`,
     active: true,
   },
