@@ -12,6 +12,8 @@ On December 21, 2020, an [RFC](https://github.com/reactjs/rfcs/pull/188) was pub
 
 Despite solving a significant problem, React Server Components have received mixed reactions from the ReactJs community. To get a clearer picture of this discourse, let us start with an understanding of React Server Components.
 
+## Table of contents
+
 ## Understanding React Server Components
 
 As the name suggests, RSCs are React Components that run exclusively on the server.

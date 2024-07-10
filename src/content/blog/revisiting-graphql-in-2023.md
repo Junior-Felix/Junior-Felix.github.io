@@ -14,6 +14,8 @@ In this article, I am going to explore the current state of GraphQL, considering
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1693792569047/6aa57d8f-9c65-4a3d-963a-14933d127786.jpeg)
 
+## Table of contents
+
 ## An Introduction of GraphQL
 
 GraphQL is a query language for APIs that empowers clients to ask for exactly what they need from pre-existing data sources. According to [Wikipedia](https://en.wikipedia.org/wiki/GraphQL), Meta (formerly Facebook) commenced development of GraphQL in 2012 and used it internally until it was released as open source in 2015. At the time, Meta encountered limitations of the REST and thus came up with GraphQL to address these shortcomings, as outlined [here](https://engineering.fb.com/2015/09/14/core-data/graphql-a-data-query-language/). Some of these bottlenecks are as follows:

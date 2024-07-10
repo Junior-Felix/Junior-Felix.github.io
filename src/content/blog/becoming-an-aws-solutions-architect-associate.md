@@ -10,6 +10,8 @@ slug: becoming-an-aws-solutions-architect-associate
 
 It has been a while since I got certified as an AWS Solutions Architect - Associate level; thus, I wanted to share my journey through it all. I’m hoping that this article provides insight to anyone who plans on studying and eventually taking the exam.
 
+## Table of contents
+
 ## Reasons for getting the certification
 
 I’m a software developer(_insert surprised Pikachu_) who has done quite a bit of front-end work. I’ve been looking for an opportunity to improve my knowledge of the back-end side of things. Thus, I began looking at the available AWS Certifications I could study in the hopes that I would learn more things.

@@ -12,6 +12,8 @@ A few releases ago, I'd wholeheartedly recommend Next.js to both friends and foe
 
 ![test](/assets/images/mark-jackson-what.jpg)
 
+## Table of contents
+
 ## Next.js 14 Release Notes
 
 The cliff notes from this release are:

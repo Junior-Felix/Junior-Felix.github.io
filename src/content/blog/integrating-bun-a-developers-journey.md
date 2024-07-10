@@ -20,6 +20,8 @@ I have often thought of the JavaScript ecosystem as a free market; where multipl
 
 As a JavaScript/TypeScript developer, I found Bun's pitch to be quite compelling. Therefore, I set off on a journey to personally evaluate the noteworthy benefits it promises.
 
+## Table of contents
+
 ![](/assets/images/bilbo.jpg)
 
 ## Getting Started
