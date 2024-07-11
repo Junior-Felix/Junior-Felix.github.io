@@ -5,32 +5,29 @@
     "jsx": "react-jsx",
     "paths": {
       "@assets/*": [
-        "assets/*"
+        "./assets/*"
       ],
       "@config/*": [
-        "config/*"
+        "./config/*"
       ],
       "@components/*": [
-        "components/*"
+        "./components/*"
       ],
       "@content/*": [
-        "content/*"
+        "./content/*"
       ],
       "@layouts/*": [
-        "layouts/*"
+        "./layouts/*"
       ],
       "@pages/*": [
-        "pages/*"
+        "./pages/*"
       ],
       "@utils/*": [
-        "utils/*"
+        "./utils/*"
       ],
       "@styles/*": [
-        "styles/*"
+        "./styles/*"
       ],
-      "@/*": [
-        "./src/*"
-      ]
     },
     "jsxImportSource": "react"
   }
