@@ -1,4 +1,4 @@
-import { Datetime } from "./Datetime";
+import { Datetime } from "./datetime";
 
 interface Props {
   title: string;

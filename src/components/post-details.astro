@@ -1,13 +1,13 @@
 ---
 import { SITE } from "@config/config";
-import Layout from "@layouts/Layout.astro";
+import Layout from "@layouts/layout.astro";
 import { slugifyStr } from "@utils/slugify";
 import type { CollectionEntry } from "astro:content";
-import Header from "./Header.astro";
-import { Datetime } from "./Datetime";
-import Tag from "./Tag.astro";
-import Footer from "./Footer.astro";
-import SharePost from "./SharePost.astro";
+import Header from "./header.astro";
+import { Datetime } from "./datetime";
+import Tag from "./tag.astro";
+import Footer from "./footer.astro";
+import SharePost from "./share-post.astro";
 
 export interface Props {
   post: CollectionEntry<"blog">;

@@ -1,7 +1,7 @@
 import type { CollectionEntry } from "astro:content";
 import Fuse from "fuse.js";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Card } from "./Card";
+import { Card } from "./card";
 
 export interface SearchItem {
   title: string;
